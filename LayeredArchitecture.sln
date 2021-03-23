@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayeredArchitecture.ConsoleUI", "LayeredArchitecture.ConsoleUI\LayeredArchitecture.ConsoleUI.csproj", "{0DCDC77C-B820-4A50-BBAC-D4C130BA763A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LayeredArchitecture.Business", "LayeredArchitecture.Business\LayeredArchitecture.Business.csproj", "{3BB65289-9BDF-4C8F-A77A-8C09C8E05DB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayeredArchitecture.Business", "LayeredArchitecture.Business\LayeredArchitecture.Business.csproj", "{3BB65289-9BDF-4C8F-A77A-8C09C8E05DB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LayeredArchitecture.DataAccess", "LayeredArchitecture.DataAccess\LayeredArchitecture.DataAccess.csproj", "{4662318F-3611-4359-8752-CA3304F872E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayeredArchitecture.DataAccess", "LayeredArchitecture.DataAccess\LayeredArchitecture.DataAccess.csproj", "{4662318F-3611-4359-8752-CA3304F872E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LayeredArchitecture.Entities", "LayeredArchitecture.Entities\LayeredArchitecture.Entities.csproj", "{D1A3D79A-9CDC-4362-A027-2A0ACEF6501E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayeredArchitecture.Entities", "LayeredArchitecture.Entities\LayeredArchitecture.Entities.csproj", "{D1A3D79A-9CDC-4362-A027-2A0ACEF6501E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayeredArchitecture.ConsoleUI", "LayeredArchitecture.ConsoleUI\LayeredArchitecture.ConsoleUI.csproj", "{997EC2D0-A542-4A12-BE05-EC15140A5CA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0DCDC77C-B820-4A50-BBAC-D4C130BA763A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0DCDC77C-B820-4A50-BBAC-D4C130BA763A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0DCDC77C-B820-4A50-BBAC-D4C130BA763A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0DCDC77C-B820-4A50-BBAC-D4C130BA763A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3BB65289-9BDF-4C8F-A77A-8C09C8E05DB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3BB65289-9BDF-4C8F-A77A-8C09C8E05DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BB65289-9BDF-4C8F-A77A-8C09C8E05DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{D1A3D79A-9CDC-4362-A027-2A0ACEF6501E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1A3D79A-9CDC-4362-A027-2A0ACEF6501E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1A3D79A-9CDC-4362-A027-2A0ACEF6501E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{997EC2D0-A542-4A12-BE05-EC15140A5CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{997EC2D0-A542-4A12-BE05-EC15140A5CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{997EC2D0-A542-4A12-BE05-EC15140A5CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{997EC2D0-A542-4A12-BE05-EC15140A5CA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LayeredArchitecture.Business.Concrete;
+using LayeredArchitecture.DataAccess.Concrete.InMemory;
+using System;
 
 namespace LayeredArchitecture.ConsoleUI
 {
@@ -10,6 +8,21 @@ namespace LayeredArchitecture.ConsoleUI
     {
         static void Main(string[] args)
         {
+            ProductManager productManager = new ProductManager(new InMemoryProductDal());
+            productManager.Add(new Entities.Concrete.Product {
+                ProductId =1,
+                CategoryId = 1,
+                ProductName = "Basket",
+                UnitPrice = 200,
+                UnitStock = 50
+            });
+
+            var products = productManager.GetAll();
+            foreach (var product in products)
+            {
+                Console.WriteLine(product.ProductName);
+            }
+            Console.ReadLine();
         }
     }
 }
