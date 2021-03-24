@@ -3,6 +3,7 @@ using LayeredArchitecture.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,7 +21,12 @@ namespace LayeredArchitecture.DataAccess.Concrete.EntityFramework
             throw new NotImplementedException();
         }
 
-        public List<Category> GetAll()
+        public Category Get(Expression<Func<Category, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Category> GetAll(Expression<Func<Category, bool>> filter)
         {
             throw new NotImplementedException();
         }
