@@ -41,14 +41,14 @@ namespace LayeredArchitecture.DataAccess.Concrete.InMemory
 
         public void Update(Product entity)
         {
-            var item = _products.FirstOrDefault(x => x.ProductId == entity.ProductId);
+            var item = _products.FirstOrDefault(x => x.ProductID == entity.ProductID);
             Console.WriteLine(entity.ProductName + " is being updated");
 
             if (item!= null)
             {
                 item.ProductName = entity.ProductName;
                 item.UnitPrice = entity.UnitPrice;
-                item.UnitStock = entity.UnitStock;
+                item.UnitsInStock = entity.UnitsInStock;
                 Console.WriteLine(entity.ProductName + " is updated value.");
             }
             else
