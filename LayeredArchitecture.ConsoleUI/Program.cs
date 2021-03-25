@@ -23,6 +23,14 @@ namespace LayeredArchitecture.ConsoleUI
             {
                 Console.WriteLine(product.ProductName);
             }
+
+            OrderManager orderManager = new OrderManager(new EfOrderDal());
+            var orders = orderManager.GetAll();
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order.OrderID);
+            }
+
             Console.ReadLine();
         }
     }
