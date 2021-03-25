@@ -1,6 +1,5 @@
 ﻿using LayeredArchitecture.Business.Abstract;
 using LayeredArchitecture.DataAccess.Abstract;
-using LayeredArchitecture.Entities.Abstract;
 using LayeredArchitecture.Entities.Concrete;
 using System;
 using System.Collections.Generic;

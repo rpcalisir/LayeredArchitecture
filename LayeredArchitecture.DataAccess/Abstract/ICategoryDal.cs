@@ -1,4 +1,5 @@
-﻿using LayeredArchitecture.Entities.Concrete;
+﻿using LayeredArchitecture.Core.DataAccess.Abstract;
+using LayeredArchitecture.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;

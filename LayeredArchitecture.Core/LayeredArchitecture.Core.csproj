@@ -5,11 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\LayeredArchitecture.Core\LayeredArchitecture.Core.csproj" />
+    <Folder Include="DataAccess\Concrete\" />
+    <Folder Include="Entities\Concrete\" />
   </ItemGroup>
 
 </Project>
