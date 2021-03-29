@@ -1,4 +1,6 @@
 ﻿using LayeredArchitecture.Business.Abstract;
+using LayeredArchitecture.Business.Constants;
+using LayeredArchitecture.Core.Utilities.Results;
 using LayeredArchitecture.DataAccess.Abstract;
 using LayeredArchitecture.Entities.Concrete;
 using System;
@@ -17,29 +19,38 @@ namespace LayeredArchitecture.Business.Concrete
             _productDal = productDal;
         }
 
-        public void Add(Product product)
+        public IResult Add(Product product)
         {
             _productDal.Add(product);
+            return new SuccessResult();
         }
 
-        public List<Product> GetAll() //?
+        public IDataResult<List<Product>> GetAll()
         {
-            return _productDal.GetAll();
+            if (DateTime.Now.Hour>22)
+            {
+                return new ErrorDataResult<List<Product>>(_productDal.GetAll(), Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductsListed) ;
         }
 
-        public List<Product> GetAllByCategoryId(int id)
+        public IDataResult<List<Product>> GetAllByCategoryId(int id)
         {
-            return _productDal.GetAll(p => p.CategoryID == id);
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryID == id));
         }
 
-        public List<Product> GetAllByUnitPrice(int min, int max)
+        public IDataResult<List<Product>> GetAllByUnitPrice(int min, int max)
         {
-            return _productDal.GetAll(p => p.UnitPrice>=min&&p.UnitPrice<=max);
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max));
         }
 
-        public List<ProductDetailsDto> GetProductDetails()
+        public IDataResult<List<ProductDetailsDto>> GetProductDetails()
         {
-            return _productDal.GetProductDetails();
+            if (DateTime.Now.Hour > 22)
+            {
+                return new ErrorDataResult<List<ProductDetailsDto>>(_productDal.GetProductDetails(), Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<ProductDetailsDto>>(_productDal.GetProductDetails(),Messages.ProductsListed);
         }
     }
 }

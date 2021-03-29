@@ -1,6 +1,7 @@
 ﻿using LayeredArchitecture.Business.Concrete;
 using LayeredArchitecture.DataAccess.Concrete.EntityFramework;
 using LayeredArchitecture.DataAccess.Concrete.InMemory;
+using LayeredArchitecture.Entities.Concrete;
 using System;
 
 namespace LayeredArchitecture.ConsoleUI
@@ -18,24 +19,50 @@ namespace LayeredArchitecture.ConsoleUI
             //    UnitStock = 50
             //});
 
-            var products = productManager.GetAll();
-            foreach (var product in products)
+            //var products = productManager.GetAll();
+            //foreach (var product in products)
+            //{
+            //    Console.WriteLine(product.ProductName);
+            //}
+
+            //OrderManager orderManager = new OrderManager(new EfOrderDal());
+            //var orders = orderManager.GetAll();
+            //foreach (var order in orders)
+            //{
+            //    Console.WriteLine(order.OrderID);
+            //}
+
+            //var productDetails = productManager.GetProductDetails();
+            //foreach (var detail in productDetails)
+            //{
+            //    Console.WriteLine(detail.ProductName);
+            //}
+
+            var result = productManager.GetProductDetails();
+            if (result.Success)
             {
-                Console.WriteLine(product.ProductName);
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.ProductName + "/" + product.ProductId);
+                }
+                Console.WriteLine(result.Message);
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
             }
 
-            OrderManager orderManager = new OrderManager(new EfOrderDal());
-            var orders = orderManager.GetAll();
-            foreach (var order in orders)
-            {
-                Console.WriteLine(order.OrderID);
-            }
 
-            var productDetails = productManager.GetProductDetails();
-            foreach (var detail in productDetails)
-            {
-                Console.WriteLine(detail.ProductName);
-            }
+            //var pro = productManager.Add(new Product 
+            //{ 
+            //    CategoryID = 1,
+            //    ProductName = "Orange Juice",
+            //    SupplierID = 1,
+            //    QuantityPerUnit = "5",
+            //    UnitPrice = 10
+            //});
+            //Console.WriteLine(pro.Success);
+
 
             Console.ReadLine();
         }

@@ -1,4 +1,5 @@
-﻿using LayeredArchitecture.Entities.Concrete;
+﻿using LayeredArchitecture.Core.Utilities.Results;
+using LayeredArchitecture.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace LayeredArchitecture.Business.Abstract
 {
     public interface IProductService
     {
-        void Add(Product product);
-        List<Product> GetAll();
-        List<Product> GetAllByCategoryId(int id);
-        List<Product> GetAllByUnitPrice(int min, int max);
-        List<ProductDetailsDto> GetProductDetails();
+        IResult Add(Product product);
+        IDataResult<List<Product>> GetAll();
+        IDataResult<List<Product>> GetAllByCategoryId(int id);
+        IDataResult<List<Product>> GetAllByUnitPrice(int min, int max);
+        IDataResult<List<ProductDetailsDto>> GetProductDetails();
     }
 }
