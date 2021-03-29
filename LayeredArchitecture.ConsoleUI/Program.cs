@@ -31,6 +31,12 @@ namespace LayeredArchitecture.ConsoleUI
                 Console.WriteLine(order.OrderID);
             }
 
+            var productDetails = productManager.GetProductDetails();
+            foreach (var detail in productDetails)
+            {
+                Console.WriteLine(detail.ProductName);
+            }
+
             Console.ReadLine();
         }
     }

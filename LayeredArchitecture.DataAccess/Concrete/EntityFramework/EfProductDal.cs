@@ -13,6 +13,22 @@ namespace LayeredArchitecture.DataAccess.Concrete.EntityFramework
 {
     public class EfProductDal : EfEntityDalBase<Product, NorthwindContext>, IProductDal
     {
-        
+        public List<ProductDetailsDto> GetProductDetails()
+        {
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                var result = from p in context.Products
+                             join c in context.Categories
+                             on p.CategoryID equals c.CategoryId
+                             select new ProductDetailsDto
+                             {
+                                 ProductId = p.ProductID,
+                                 ProductName = p.ProductName,
+                                 SupplierID = p.SupplierID,
+                                 UnitsInStock = p.UnitsInStock
+                             };
+                return result.ToList();
+            }
+        }
     }
 }

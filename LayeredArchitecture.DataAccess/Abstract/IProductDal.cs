@@ -10,5 +10,6 @@ namespace LayeredArchitecture.DataAccess.Abstract
 {
     public interface IProductDal: IEntityDal<Product>
     {
+        List<ProductDetailsDto> GetProductDetails();
     }
 }

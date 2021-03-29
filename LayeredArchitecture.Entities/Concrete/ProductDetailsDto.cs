@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace LayeredArchitecture.Entities.Concrete
 {
-    public class Product : IEntity
+    public class ProductDetailsDto: IDTO
     {
-        public int ProductID { get; set; }
-        public int CategoryID { get; set; }
+        public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public short UnitsInStock { get; set; }
-        public decimal UnitPrice { get; set; }
         public int SupplierID { get; set; }
+        public short UnitsInStock { get; set; }
     }
 }

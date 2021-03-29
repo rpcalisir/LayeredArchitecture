@@ -13,5 +13,6 @@ namespace LayeredArchitecture.Business.Abstract
         List<Product> GetAll();
         List<Product> GetAllByCategoryId(int id);
         List<Product> GetAllByUnitPrice(int min, int max);
+        List<ProductDetailsDto> GetProductDetails();
     }
 }

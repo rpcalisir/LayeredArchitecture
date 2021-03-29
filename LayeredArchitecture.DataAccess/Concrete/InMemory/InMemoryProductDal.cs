@@ -39,6 +39,11 @@ namespace LayeredArchitecture.DataAccess.Concrete.InMemory
             return _products;
         }
 
+        public List<ProductDetailsDto> GetProductDetails()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Product entity)
         {
             var item = _products.FirstOrDefault(x => x.ProductID == entity.ProductID);
