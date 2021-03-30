@@ -1,4 +1,6 @@
 ﻿using LayeredArchitecture.Business.Abstract;
+using LayeredArchitecture.Business.Constants;
+using LayeredArchitecture.Core.Utilities.Results;
 using LayeredArchitecture.DataAccess.Abstract;
 using LayeredArchitecture.Entities.Concrete;
 using System;
@@ -17,22 +19,27 @@ namespace LayeredArchitecture.Business.Concrete
         {
             _orderDal = orderDal;
         }
-        public void Add(Order order)
+        public IResult Add(Order order)
         {
             _orderDal.Add(order);
+            return new SuccessResult(Messages.OrderAdded);
         }
 
-        public List<Order> GetAll()
+        public IDataResult<List<Order>> GetAll()
         {
-            return _orderDal.GetAll();
+            if (DateTime.Now.Hour > 22)
+            {
+                return new ErrorDataResult<List<Order>>(_orderDal.GetAll(),Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<Order>>(_orderDal.GetAll(), Messages.OrderAdded);
         }
 
-        public List<Order> GetAllByCategoryId(int id)
+        public IDataResult<List<Order>> GetAllByCategoryId(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Order> GetAllByUnitPrice(int min, int max)
+        public IDataResult<List<Order>> GetAllByUnitPrice(int min, int max)
         {
             throw new NotImplementedException();
         }
