@@ -1,0 +1,30 @@
+﻿using LayeredArchitecture.Business.Abstract;
+using LayeredArchitecture.Business.Concrete;
+using LayeredArchitecture.Entities.Concrete;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace LayeredArchitecture.WebAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductsController : ControllerBase
+    {
+        IProductService _productService;
+        public ProductsController(IProductService productService)
+        {
+            _productService = productService;
+        }
+
+        [HttpGet]
+        public List<Product> GetAll()
+        {
+            var result = _productService.GetAll();
+            return result.Data;
+        }
+    }
+}

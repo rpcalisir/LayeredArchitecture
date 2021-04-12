@@ -11,19 +11,20 @@ namespace LayeredArchitecture.ConsoleUI
         static void Main(string[] args)
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
-            //productManager.Add(new Entities.Concrete.Product {
-            //    ProductId =1,
+            //productManager.Add(new Entities.Concrete.Product
+            //{
+            //    ProductId = 1,
             //    CategoryId = 1,
             //    ProductName = "Basket",
             //    UnitPrice = 200,
             //    UnitStock = 50
             //});
 
-            //var products = productManager.GetAll();
-            //foreach (var product in products)
-            //{
-            //    Console.WriteLine(product.ProductName);
-            //}
+            var products = productManager.GetAll();
+            foreach (var product in products.Data)
+            {
+                Console.WriteLine(product.ProductName);
+            }
 
             //OrderManager orderManager = new OrderManager(new EfOrderDal());
             //var orders = orderManager.GetAll();
@@ -38,19 +39,19 @@ namespace LayeredArchitecture.ConsoleUI
             //    Console.WriteLine(detail.ProductName);
             //}
 
-            var result = productManager.GetProductDetails();
-            if (result.Success)
-            {
-                foreach (var product in result.Data)
-                {
-                    Console.WriteLine(product.ProductName + "/" + product.ProductId);
-                }
-                Console.WriteLine(result.Message);
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
+            //var result = productManager.GetProductDetails();
+            //if (result.Success)
+            //{
+            //    foreach (var product in result.Data)
+            //    {
+            //        Console.WriteLine(product.ProductName + "/" + product.ProductId);
+            //    }
+            //    Console.WriteLine(result.Message);
+            //}
+            //else
+            //{
+            //    Console.WriteLine(result.Message);
+            //}
 
 
             //var pro = productManager.Add(new Product 
