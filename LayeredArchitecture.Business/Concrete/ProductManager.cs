@@ -44,6 +44,11 @@ namespace LayeredArchitecture.Business.Concrete
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max));
         }
 
+        public IDataResult<List<Product>> GetById(int id)
+        {
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.ProductID == id));
+        }
+
         public IDataResult<List<ProductDetailsDto>> GetProductDetails()
         {
             if (DateTime.Now.Hour > 22)

@@ -13,6 +13,7 @@ namespace LayeredArchitecture.Business.Abstract
         IResult Add(Product product);
         IDataResult<List<Product>> GetAll();
         IDataResult<List<Product>> GetAllByCategoryId(int id);
+        IDataResult<List<Product>> GetById(int id);
         IDataResult<List<Product>> GetAllByUnitPrice(int min, int max);
         IDataResult<List<ProductDetailsDto>> GetProductDetails();
     }

@@ -20,11 +20,34 @@ namespace LayeredArchitecture.WebAPI.Controllers
             _productService = productService;
         }
 
-        [HttpGet]
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _productService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+            ;
+        }
+
+        [HttpGet("getall")]
         public List<Product> GetAll()
         {
             var result = _productService.GetAll();
             return result.Data;
+        }
+
+        [HttpPost]
+        public IActionResult Add(Product product)
+        {
+            var result = _productService.Add(product);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }
